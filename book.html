@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Booking — Mariette Bondey Hair Studio" />
+  <title>Booking — Mariette Bondey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Mariette Bondey home">
+        <span class="brand-mark">MB</span>
+        <span>
+          <strong>Mariette Bondey</strong>
+          <small>African Hair Stylist</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="styles.html">Styles</a>
+        <a href="experience.html">Experience</a>
+        <a class="nav-cta" href="book.html">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  
+
+    <section class="section booking-section" id="booking">
+      <div class="container booking-grid">
+        <div>
+          <p class="eyebrow">Booking</p>
+          <h2>Ready for your next style?</h2>
+          <p>
+            Tell Mariette what you're looking for and share the details of your ideal look.
+          </p>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+          <div class="form-row">
+            <label>
+              Name
+              <input type="text" name="name" required placeholder="Your name">
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" required placeholder="(000) 000-0000">
+            </label>
+          </div>
+
+          <label>
+            Service
+            <select name="service" id="serviceSelect" required>
+              <option value="">Choose a service</option>
+              <option>Box Braids</option>
+              <option>Knotless Braids</option>
+              <option>Twists</option>
+              <option>Cornrows</option>
+              <option>Natural Hair Styling</option>
+              <option>Consultation</option>
+            </select>
+          </label>
+
+          <label>
+            Preferred date
+            <input type="date" name="date" required>
+          </label>
+
+          <label>
+            Tell Mariette about your hair and desired style
+            <textarea name="notes" rows="5" placeholder="Hair length, style inspiration, concerns, preferred size or length..."></textarea>
+          </label>
+
+          <button class="btn btn-primary full" type="submit">Send Booking Request</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark">MB</span>
+          <span><strong>Mariette Bondey</strong><small>African Hair Stylist</small></span>
+        </a>
+        <p>Beautiful hair, thoughtful care, and a client experience designed around you.</p>
+      </div>
+      <div>
+        <strong>Explore</strong>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="styles.html">Hair Styles</a>
+      </div>
+      <div>
+        <strong>Visit</strong>
+        <a href="book.html">Booking</a>
+        <a href="index.html">Back to top</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      <span>© <span id="year"></span> Mariette Bondey. All rights reserved.</span>
+      <span>Designed for a welcoming, user-centered salon experience.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
