@@ -9,9 +9,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="index.html" aria-label="Mariette Bondey home">
@@ -35,7 +38,17 @@
   </header>
 
   <main>
-  
+    <section class="services-intro" aria-labelledby="servicesIntroTitle">
+      <div class="container services-intro-layout">
+        <div class="services-intro-visual" aria-hidden="true"></div>
+        <div class="services-intro-panel">
+          <h1 id="servicesIntroTitle">Services</h1>
+          <h2>About Our Services:</h2>
+          <p>All services show a starting price and can increase based on hair length, texture, additional services rendered, and your stylist’s experience and skill level. The number of sessions needed to achieve specific results may vary.</p>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section soft-bg" id="services">
       <div class="container">
@@ -44,45 +57,46 @@
             <p class="eyebrow">Services</p>
             <h2>Styles made for real life.</h2>
           </div>
-          <p>Service details can be customized with final prices, duration, hair requirements, and add-ons.</p>
         </div>
 
-        <div class="service-grid">
+        <div class="service-grid service-menu-grid">
           <article class="service-card">
-            <span class="service-number">01</span>
             <h3>Box Braids</h3>
-            <p>Classic protective braids with size, length, parting, and finish customized to your preference.</p>
-            <button class="text-link service-open" data-service="Box Braids">Learn more →</button>
+            <img class="service-photo" src="Photo/4b4b06c7-abb1-41e1-b7fb-495ad75282eb.JPG" alt="Long box braids styled by Mariette Bondey" />
+            <p class="service-price">Box Braids <span aria-hidden="true">—</span> $180+</p>
           </article>
           <article class="service-card">
-            <span class="service-number">02</span>
             <h3>Knotless Braids</h3>
-            <p>A lightweight, natural-looking protective style designed for comfort and flexible styling.</p>
-            <button class="text-link service-open" data-service="Knotless Braids">Learn more →</button>
+            <img class="service-photo" src="Photo/86c4bb06-f170-46ef-b117-cd4482ec2433.JPG" alt="Knotless braids styled by Mariette Bondey" />
+            <p class="service-price">Knotless Braids <span aria-hidden="true">—</span> $200+</p>
           </article>
           <article class="service-card">
-            <span class="service-number">03</span>
             <h3>Twists</h3>
-            <p>Beautiful two-strand, Senegalese, or passion-inspired twists for a soft and versatile finish.</p>
-            <button class="text-link service-open" data-service="Twists">Learn more →</button>
+            <img class="service-photo" src="Photo/58ec843f-181c-4fa9-ad9d-44d2dd115f28.JPG" alt="Twist hairstyle by Mariette Bondey" />
+            <div class="service-options" aria-label="Twists pricing">
+              <p>Two-Strand Twists <span aria-hidden="true">—</span> $120+</p>
+              <p>Senegalese Twists <span aria-hidden="true">—</span> $180+</p>
+              <p>Passion Twists <span aria-hidden="true">—</span> $200+</p>
+            </div>
           </article>
           <article class="service-card">
-            <span class="service-number">04</span>
             <h3>Cornrows</h3>
-            <p>Clean, detailed cornrow styles ranging from simple everyday patterns to creative designs.</p>
-            <button class="text-link service-open" data-service="Cornrows">Learn more →</button>
+            <img class="service-photo" src="Photo/11aa1cfb-1205-4172-a0fb-a0cc8f281c3e.JPG" alt="Detailed cornrow style by Mariette Bondey" />
+            <div class="service-options" aria-label="Cornrows pricing">
+              <p>Straight-Back Cornrows <span aria-hidden="true">—</span> $85+</p>
+              <p>Feed-In Cornrows <span aria-hidden="true">—</span> $120+</p>
+              <p>Designer Cornrows <span aria-hidden="true">—</span> $150+</p>
+            </div>
           </article>
           <article class="service-card">
-            <span class="service-number">05</span>
             <h3>Natural Hair Styling</h3>
-            <p>Styles that celebrate natural texture while prioritizing healthy handling and manageable upkeep.</p>
-            <button class="text-link service-open" data-service="Natural Hair Styling">Learn more →</button>
+            <img class="service-photo" src="Photo/6db49987-916b-40a3-b240-1acb99595fb9.JPG" alt="Natural hair styling by Mariette Bondey" />
+            <p class="service-price">Natural Styling <span aria-hidden="true">—</span> $50+</p>
           </article>
           <article class="service-card">
-            <span class="service-number">06</span>
-            <h3>Consultation</h3>
-            <p>Not sure what to book? Start with a conversation about your hair, lifestyle, goals, and comfort.</p>
-            <button class="text-link service-open" data-service="Consultation">Learn more →</button>
+            <h3>Kids Hair Styling</h3>
+            <img class="service-photo" src="Photo/MBpicclient.JPG" alt="Personal hair consultation with Mariette Bondey" />
+            <p class="service-price">Consultation <span aria-hidden="true">—</span> $65</p>
           </article>
         </div>
       </div>
