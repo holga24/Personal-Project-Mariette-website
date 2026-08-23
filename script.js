@@ -15,6 +15,36 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   });
 });
 
+const aboutPortrait = document.getElementById("aboutPortrait");
+const aboutHelp = document.getElementById("aboutHelp");
+
+if (aboutPortrait && aboutHelp) {
+  const setPortraitSide = flipped => {
+    aboutPortrait.classList.toggle("is-flipped", flipped);
+    aboutPortrait.setAttribute("aria-pressed", flipped ? "true" : "false");
+  };
+  const togglePortrait = () => setPortraitSide(!aboutPortrait.classList.contains("is-flipped"));
+
+  const portraitObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setPortraitSide(true);
+      } else if (entry.boundingClientRect.top > 0) {
+        setPortraitSide(false);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  portraitObserver.observe(aboutHelp);
+  aboutPortrait.addEventListener("click", togglePortrait);
+  aboutPortrait.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      togglePortrait();
+    }
+  });
+}
+
 const filters = document.querySelectorAll(".filter");
 const galleryItems = document.querySelectorAll(".gallery-item");
 
@@ -46,27 +76,30 @@ const dialogBody = document.getElementById("dialogBody");
 const dialogBook = document.getElementById("dialogBook");
 const serviceSelect = document.getElementById("serviceSelect");
 
-document.querySelectorAll(".service-open").forEach(button => {
-  button.addEventListener("click", () => {
-    const service = button.dataset.service;
-    dialogTitle.textContent = service;
-    dialogBody.textContent = serviceDetails[service];
-    dialogBook.dataset.service = service;
-    dialog.showModal();
+if (dialog && dialogTitle && dialogBody && dialogBook) {
+  document.querySelectorAll(".service-open").forEach(button => {
+    button.addEventListener("click", () => {
+      const service = button.dataset.service;
+      dialogTitle.textContent = service;
+      dialogBody.textContent = serviceDetails[service];
+      dialogBook.dataset.service = service;
+      dialog.showModal();
+    });
   });
-});
 
-document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
+  const dialogClose = document.querySelector(".dialog-close");
+  if (dialogClose) dialogClose.addEventListener("click", () => dialog.close());
 
-dialog.addEventListener("click", event => {
-  if (event.target === dialog) dialog.close();
-});
+  dialog.addEventListener("click", event => {
+    if (event.target === dialog) dialog.close();
+  });
 
-dialogBook.addEventListener("click", () => {
-  const service = dialogBook.dataset.service;
-  serviceSelect.value = service;
-  dialog.close();
-});
+  dialogBook.addEventListener("click", () => {
+    const service = dialogBook.dataset.service;
+    if (serviceSelect) serviceSelect.value = service;
+    dialog.close();
+  });
+}
 
 const testimonialCarousel = document.getElementById("testimonialCarousel");
 

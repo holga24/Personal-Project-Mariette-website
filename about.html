@@ -35,18 +35,14 @@
   </header>
 
   <main>
- 
-
-    <section class="section" id="about">
-      <div class="container split about-layout">
-        <div class="about-image-wrap">
-          <img src="Photo/MBpicture.png" alt="Mariette Bondey portrait" class="about-photo" />
-        </div>
-        <div>
+    <div class="container about-scroll-layout">
+      <section class="about-scroll-panel about-intro" id="about">
+        <div class="about-copy">
           <p class="eyebrow">Meet Mariette</p>
           <h2>Hair styling with skill, care, and culture.</h2>
           <div class="body-copy">
             <p>
+              Hi!
               Mariette Bondey specializes in African hair styling and protective styles.
               Her work combines technical skill, creativity, and attention to the individual
               needs of each client.
@@ -58,8 +54,41 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <aside class="about-portrait-column" aria-label="Mariette portrait card">
+        <div class="about-image-wrap about-help-portrait" id="aboutPortrait" role="button" tabindex="0" aria-label="Flip Mariette's portrait card" aria-pressed="false">
+          <div class="about-image-flipper">
+            <img src="Photo/MBpicture.png" alt="Mariette Bondey in her salon" class="about-photo about-photo-front" />
+            <img src="Photo/mbafrican.jpeg" alt="Mariette Bondey wearing a vibrant African-print outfit" class="about-photo about-photo-back" />
+          </div>
+        </div>
+      </aside>
+
+      <section class="about-scroll-panel about-help" id="aboutHelp">
+        <div class="about-help-copy">
+          <p class="eyebrow">Choose your care</p>
+          <h2>What can I do for you?</h2>
+          <div class="about-service-cards">
+            <a href="services.html" class="about-service-card">
+              <span>01</span>
+              <h3>Braiding</h3>
+              <p>Beautiful braids tailored to your preferred size, length, and finish.</p>
+            </a>
+            <a href="services.html" class="about-service-card">
+              <span>02</span>
+              <h3>Protective Styling</h3>
+              <p>Comfortable styles created to protect your hair and support easy maintenance.</p>
+            </a>
+            <a href="services.html" class="about-service-card">
+              <span>03</span>
+              <h3>Natural Hair Care</h3>
+              <p>Thoughtful styling that celebrates your natural texture and healthy hair.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
