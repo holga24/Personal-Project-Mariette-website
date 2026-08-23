@@ -174,7 +174,7 @@ if (testimonialCarousel) {
 const bookingForm = document.getElementById("bookingForm");
 const formStatus = document.getElementById("formStatus");
 
-if (bookingForm) {
+if (bookingForm && !bookingForm.action.includes("formspree.io")) {
   bookingForm.addEventListener("submit", event => {
     event.preventDefault();
     const formData = new FormData(bookingForm);

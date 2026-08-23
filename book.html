@@ -54,17 +54,23 @@
           </div>
         </div>
 
-        <form class="booking-form" id="bookingForm">
+        <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xjybdjnl" method="POST">
+          <input type="hidden" name="_subject" value="New booking request for Mariette Bondey">
           <div class="form-row">
             <label>
               Name
-              <input type="text" name="name" required placeholder="Your name">
+              <input type="text" name="name" required autocomplete="name" placeholder="Your name">
             </label>
             <label>
               Phone
-              <input type="tel" name="phone" required placeholder="(000) 000-0000">
+              <input type="tel" name="phone" required autocomplete="tel" placeholder="(000) 000-0000">
             </label>
           </div>
+
+          <label>
+            Email
+            <input type="email" name="email" required autocomplete="email" placeholder="Your email address">
+          </label>
 
           <label>
             Service
@@ -86,7 +92,7 @@
 
           <label>
             Tell Mariette about your hair and desired style
-            <textarea name="notes" rows="5" placeholder="Hair length, style inspiration, concerns, preferred size or length..."></textarea>
+            <textarea name="message" rows="5" required placeholder="Hair length, style inspiration, concerns, preferred size or length..."></textarea>
           </label>
 
           <button class="btn btn-primary full" type="submit">Send Booking Request</button>
