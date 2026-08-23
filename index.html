@@ -59,11 +59,7 @@
 
         <div class="hero-visual" aria-label="Hair style showcase">
           <div class="hero-card hero-card-main">
-            <img class="hero-photo" src="Photo/boxbraids.jpg" alt="Close-up detail of polished box braids" />
-          </div>
-          <div class="floating-card">
-            <strong>Personalized care</strong>
-            <span>Style consultation • comfort • clear pricing</span>
+            <img class="hero-photo" src="Photo/hairetoile.jpeg" alt="Close-up detail of polished box braids" />
           </div>
         </div>
       </div>
@@ -122,13 +118,18 @@
           <p class="eyebrow">Client Love</p>
           <h2>A style you love. An experience you want to return to.</h2>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card" id="testimonialCarousel" aria-label="Client reviews" aria-live="polite">
           <div class="stars">★★★★★</div>
-          <blockquote>
+          <blockquote id="testimonialQuote">
             “Mariette listened to what I wanted, made sure I was comfortable,
             and gave me a style that felt beautiful and easy to maintain.”
           </blockquote>
-          <p>— Sample client testimonial</p>
+          <p id="testimonialAuthor">— Olga Hamilton</p>
+          <div class="testimonial-controls">
+            <button type="button" id="testimonialPrev" aria-label="Previous review">←</button>
+            <div class="testimonial-dots" id="testimonialDots" aria-label="Choose a review"></div>
+            <button type="button" id="testimonialNext" aria-label="Next review">→</button>
+          </div>
         </div>
       </div>
     </section>
@@ -151,14 +152,19 @@
       </div>
       <div>
         <strong>Visit</strong>
-        <a href="clientcare.html">Client Experience</a>
         <a href="book.html">Booking</a>
         <a href="index.html">Back to top</a>
+      </div>
+      <div class="footer-contact">
+        <strong>Contact</strong>
+        <a href="tel:+18162949187"><strong>Phone:</strong> +1 (816) 294-9187</a>
+        <a href="mailto:Mbondey@live.com"><strong>Email:</strong> Mbondey@live.com</a>
+        <span><strong>Location:</strong> Dallas, Texas</span>
       </div>
     </div>
     <div class="container copyright">
       <span>© <span id="year"></span> Mariette Bondey. All rights reserved.</span>
-      <span>Designed for a welcoming, user-centered salon experience.</span>
+      <span>Thank you for visiting! Come back to visit soon.</span>
     </div>
   </footer>
 

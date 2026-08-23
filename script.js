@@ -68,17 +68,89 @@ dialogBook.addEventListener("click", () => {
   dialog.close();
 });
 
+const testimonialCarousel = document.getElementById("testimonialCarousel");
+
+if (testimonialCarousel) {
+  const reviews = [
+    {
+      quote: "Mariette listened to what I wanted, made sure I was comfortable, and gave me a style that felt beautiful and easy to maintain.",
+      author: "Olga Hamilton"
+    },
+    {
+      quote: "I felt comfortable from the start and left with a style that looked beautiful and lasted beautifully.",
+      author: "Noela Lomboto"
+    },
+    {
+      quote: "I felt relaxed the whole time, and my hair looked healthy, neat, and full of life.",
+      author: "Blandine Mateta"
+    },
+    {
+      quote: "The style was polished, comfortable, and exactly what I hoped for.",
+      author: "Sophie Lumingu"
+    }
+  ];
+  const quote = document.getElementById("testimonialQuote");
+  const author = document.getElementById("testimonialAuthor");
+  const dots = document.getElementById("testimonialDots");
+  const previous = document.getElementById("testimonialPrev");
+  const next = document.getElementById("testimonialNext");
+  let currentReview = 0;
+  let reviewTimer;
+
+  reviews.forEach((review, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "testimonial-dot";
+    dot.setAttribute("aria-label", `Show review ${index + 1}`);
+    dot.addEventListener("click", () => showReview(index));
+    dots.appendChild(dot);
+  });
+
+  const showReview = index => {
+    currentReview = (index + reviews.length) % reviews.length;
+    testimonialCarousel.classList.add("is-changing");
+    window.setTimeout(() => {
+      quote.textContent = `“${reviews[currentReview].quote}”`;
+      author.textContent = `— ${reviews[currentReview].author}`;
+      testimonialCarousel.classList.remove("review-theme-1", "review-theme-2", "review-theme-3");
+      if (currentReview > 0) testimonialCarousel.classList.add(`review-theme-${currentReview}`);
+      dots.querySelectorAll(".testimonial-dot").forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === currentReview);
+        dot.setAttribute("aria-current", dotIndex === currentReview ? "true" : "false");
+      });
+      testimonialCarousel.classList.remove("is-changing");
+    }, 250);
+  };
+
+  const startReviews = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    window.clearInterval(reviewTimer);
+    reviewTimer = window.setInterval(() => showReview(currentReview + 1), 5000);
+  };
+
+  previous.addEventListener("click", () => { showReview(currentReview - 1); startReviews(); });
+  next.addEventListener("click", () => { showReview(currentReview + 1); startReviews(); });
+  testimonialCarousel.addEventListener("mouseenter", () => window.clearInterval(reviewTimer));
+  testimonialCarousel.addEventListener("mouseleave", startReviews);
+  testimonialCarousel.addEventListener("focusin", () => window.clearInterval(reviewTimer));
+  testimonialCarousel.addEventListener("focusout", startReviews);
+  showReview(0);
+  startReviews();
+}
+
 const bookingForm = document.getElementById("bookingForm");
 const formStatus = document.getElementById("formStatus");
 
-bookingForm.addEventListener("submit", event => {
-  event.preventDefault();
-  const formData = new FormData(bookingForm);
-  const name = formData.get("name");
-  const service = formData.get("service");
+if (bookingForm) {
+  bookingForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const formData = new FormData(bookingForm);
+    const name = formData.get("name");
+    const service = formData.get("service");
 
-  formStatus.textContent = `Thank you, ${name}. Your ${service} request is ready to be connected to Mariette's booking system.`;
-  bookingForm.reset();
-});
+    formStatus.textContent = `Thank you, ${name}. Your ${service} request is ready to be connected to Mariette's booking system.`;
+    bookingForm.reset();
+  });
+}
 
 document.getElementById("year").textContent = new Date().getFullYear();
