@@ -667,6 +667,19 @@ textarea { resize: vertical; }
 .footer-grid p { max-width: 460px; color: rgba(255,255,255,0.88); }
 .footer-grid a:not(.brand) { color: rgba(255,255,255,0.93); font-size: 14px; }
 .footer-contact span { color: rgba(255,255,255,0.93); font-size: 14px; }
+.footer-grid .footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-top: 4px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 50%;
+  transition: transform .2s ease, background-color .2s ease;
+}
+.footer-grid .footer-social-link:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+.footer-social-link svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .footer-brand .brand-mark { background: rgba(255,255,255,0.22); color: var(--white); }
 .footer-brand small { color: rgba(255,255,255,0.82); }
 .copyright {
