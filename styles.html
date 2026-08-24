@@ -46,39 +46,50 @@
           <div class="filter-row" aria-label="Gallery filters">
             <button class="filter active" data-filter="all">All</button>
             <button class="filter" data-filter="braids">Braids</button>
+            <button class="filter" data-filter="cornrows">Cornrows</button>
+            <button class="filter" data-filter="natural">Natural Hair</button>
+            <button class="filter" data-filter="kids">Kids</button>
             <button class="filter" data-filter="twists">Twists</button>
-            <button class="filter" data-filter="natural">Natural</button>
           </div>
         </div>
 
         <div class="gallery-grid">
-          <figure class="gallery-item tall" data-category="braids">
-            <div class="image-placeholder"><span>Knotless braids</span></div>
-            <figcaption>Knotless Braids</figcaption>
-          </figure>
-          <figure class="gallery-item" data-category="twists">
-            <div class="image-placeholder"><span>Twist style</span></div>
-            <figcaption>Soft Twists</figcaption>
-          </figure>
-          <figure class="gallery-item" data-category="braids">
-            <div class="image-placeholder"><span>Cornrow style</span></div>
-            <figcaption>Creative Cornrows</figcaption>
-          </figure>
-          <figure class="gallery-item tall" data-category="natural">
-            <div class="image-placeholder"><span>Natural hair style</span></div>
-            <figcaption>Natural Styling</figcaption>
-          </figure>
-          <figure class="gallery-item" data-category="braids">
-            <div class="image-placeholder"><span>Box braid style</span></div>
-            <figcaption>Box Braids</figcaption>
-          </figure>
-          <figure class="gallery-item" data-category="twists">
-            <div class="image-placeholder"><span>Passion twist style</span></div>
-            <figcaption>Passion Twists</figcaption>
-          </figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/photo1.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 01</figcaption></figure>
+          <figure class="gallery-item" data-category="kids"><img src="Photo/photo2.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 02</figcaption></figure>
+          <figure class="gallery-item" data-category="twists"><img src="Photo/photo3.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 03</figcaption></figure>
+          <figure class="gallery-item" data-category="natural"><img src="Photo/photo4.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 04</figcaption></figure>
+          <figure class="gallery-item" data-category="cornrows"><img src="Photo/photo5.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 05</figcaption></figure>
+          <figure class="gallery-item" data-category="twists"><img src="Photo/photo6.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 06</figcaption></figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/photo7.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 07</figcaption></figure>
+          <figure class="gallery-item" data-category="kids"><img src="Photo/photo8.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 08</figcaption></figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/photo9.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 09</figcaption></figure>
+          <figure class="gallery-item" data-category="twists"><img src="Photo/photo10.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 10</figcaption></figure>
+          <figure class="gallery-item" data-category="cornrows"><img src="Photo/photo11.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 11</figcaption></figure>
+          <figure class="gallery-item" data-category="natural"><img src="Photo/photo12.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 12</figcaption></figure>
+          <figure class="gallery-item" data-category="kids"><img src="Photo/photo13.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 13</figcaption></figure>
+          <figure class="gallery-item" data-category="twists"><img src="Photo/photo14.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 14</figcaption></figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/photo15.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 15</figcaption></figure>
+          <figure class="gallery-item" data-category="natural"><img src="Photo/photo16.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 16</figcaption></figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/photo17.jpg" alt="Hairstyle by Mariette Bondey" loading="lazy"><figcaption>Style 17</figcaption></figure>
+          <figure class="gallery-item" data-category="cornrows"><img src="Photo/cornrowpic.jpeg" alt="Cornrow updo with beaded braids by Mariette Bondey" loading="lazy"><figcaption>Style 18</figcaption></figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/hairetoile.jpeg" alt="Large braided ponytail by Mariette Bondey" loading="lazy"><figcaption>Style 19</figcaption></figure>
+          <figure class="gallery-item" data-category="braids"><img src="Photo/photo15.jpg" alt="Copper curly braided style by Mariette Bondey" loading="lazy"><figcaption>Style 20</figcaption></figure>
+        </div>
+        <div class="gallery-load-more-wrap">
+          <button class="btn btn-primary gallery-load-more" id="galleryLoadMore" type="button">Load More</button>
         </div>
       </div>
     </section>
+
+    <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Expanded hairstyle photo" aria-hidden="true">
+      <button class="gallery-lightbox-close" type="button" aria-label="Close image">×</button>
+      <button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <figure>
+        <img id="galleryLightboxImage" alt="">
+        <figcaption id="galleryLightboxCaption"></figcaption>
+      </figure>
+      <button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" aria-label="Next image">›</button>
+    </div>
   </main>
 
   <footer class="site-footer">

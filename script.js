@@ -47,19 +47,103 @@ if (aboutPortrait && aboutHelp) {
 
 const filters = document.querySelectorAll(".filter");
 const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryLoadMore = document.getElementById("galleryLoadMore");
+const galleryLightbox = document.getElementById("galleryLightbox");
+let activeGalleryFilter = "all";
+let visibleGalleryCount = 8;
+let lightboxItems = [];
+let lightboxIndex = 0;
+let lightboxTrigger = null;
+
+const matchingGalleryItems = () => Array.from(galleryItems).filter(item => (
+  activeGalleryFilter === "all" || item.dataset.category === activeGalleryFilter
+));
+
+const renderGallery = () => {
+  const matches = matchingGalleryItems();
+  galleryItems.forEach(item => item.classList.add("hidden"));
+  matches.slice(0, visibleGalleryCount).forEach(item => item.classList.remove("hidden"));
+  if (galleryLoadMore) galleryLoadMore.hidden = visibleGalleryCount >= matches.length;
+};
 
 filters.forEach(button => {
   button.addEventListener("click", () => {
     filters.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
-
-    const filter = button.dataset.filter;
-    galleryItems.forEach(item => {
-      const shouldShow = filter === "all" || item.dataset.category === filter;
-      item.classList.toggle("hidden", !shouldShow);
-    });
+    activeGalleryFilter = button.dataset.filter;
+    visibleGalleryCount = 8;
+    renderGallery();
   });
 });
+
+if (galleryLoadMore) {
+  galleryLoadMore.addEventListener("click", () => {
+    visibleGalleryCount += 8;
+    renderGallery();
+  });
+}
+
+if (galleryLightbox && galleryItems.length) {
+  const lightboxImage = document.getElementById("galleryLightboxImage");
+  const lightboxCaption = document.getElementById("galleryLightboxCaption");
+  const lightboxClose = galleryLightbox.querySelector(".gallery-lightbox-close");
+  const lightboxPrevious = galleryLightbox.querySelector(".gallery-lightbox-prev");
+  const lightboxNext = galleryLightbox.querySelector(".gallery-lightbox-next");
+
+  const showLightboxImage = index => {
+    lightboxIndex = (index + lightboxItems.length) % lightboxItems.length;
+    const item = lightboxItems[lightboxIndex];
+    const image = item.querySelector("img");
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightboxCaption.textContent = item.querySelector("figcaption").textContent;
+  };
+
+  const openLightbox = item => {
+    lightboxTrigger = item;
+    lightboxItems = Array.from(galleryItems).filter(galleryItem => !galleryItem.classList.contains("hidden"));
+    showLightboxImage(lightboxItems.indexOf(item));
+    galleryLightbox.classList.add("open");
+    galleryLightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    lightboxClose.focus();
+  };
+
+  const closeLightbox = () => {
+    galleryLightbox.classList.remove("open");
+    galleryLightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+    if (lightboxTrigger) lightboxTrigger.focus();
+  };
+
+  galleryItems.forEach(item => {
+    item.tabIndex = 0;
+    item.setAttribute("role", "button");
+    item.setAttribute("aria-label", `Open ${item.querySelector("figcaption").textContent}`);
+    item.addEventListener("click", () => openLightbox(item));
+    item.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(item);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxPrevious.addEventListener("click", () => showLightboxImage(lightboxIndex - 1));
+  lightboxNext.addEventListener("click", () => showLightboxImage(lightboxIndex + 1));
+  galleryLightbox.addEventListener("click", event => {
+    if (event.target === galleryLightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", event => {
+    if (!galleryLightbox.classList.contains("open")) return;
+    if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowLeft") showLightboxImage(lightboxIndex - 1);
+    if (event.key === "ArrowRight") showLightboxImage(lightboxIndex + 1);
+  });
+}
+
+if (galleryItems.length) renderGallery();
 
 const serviceDetails = {
   "Box Braids": "A classic protective style that can be customized by braid size, length, parting pattern, and finish. Add exact pricing and preparation requirements here.",
